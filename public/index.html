@@ -1,43 +1,204 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+<html lang="es">
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+<head>
+  <meta charset="utf-8" />
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <title>Gestion productos</title>
+</head>
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
+<body>
+  <style>
+    .fgprod {
+      width: 100vw;
+      min-width: 30vw;
+
+      top: 10vh;
+    }
+
+    .row {
+      margin-top: 5vh;
+    }
+
+    footer {
+      text-align: center;
+    }
+  </style>
+  <header>
+    <nav class="navbar fixed-top  navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+          <!-- <img src="/static/images/aeropuertoIcon.png" alt="" width="43"
+                    height="38"> -->
+          |Relojería Invicta|
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <!--    <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>-->
+
+          </ul>
+          <ul class="navbar-nav mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a href="/login" class="btn btn-link" id="btnRegistrar">Ingresar</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="/registro" class="btn btn-link" id="btnRegistrar">Registrar</a>
+            </li>
+
+          </ul>
+
+
+          <!-- <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/reservar">Reservar Vuelo</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/evaluar">Evaluar Vuelo</a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/dashboard">Ir Dashboard</a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/vistapiloto">Mis Vuelos</a>
+                        </li>
+                    </ul> -->
+
+
+          <div class="float-sm-start">
+
+            <span class="fs-6 fw-bold  align-middle text-capitalize" style="color: aliceblue;">Trabajador</span>
+            <br>
+
+            <span class="navbar-text" style="font-size: x-small;">
+              Usuario
+            </span>
+
+          </div>
+          <ul class="navbar-nav mb-2 mb-lg-0" style="margin-right: 5%;">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" id="desplegableUser" href="#" id="navbarDropdown" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="/static/images/user.png" width="49%">
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start dropdown-menu-dark"
+                aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Cerrar Sesión</a></li>
+
+              </ul>
+            </li>
+          </ul>
+
+        </div>
+      </div>
+    </nav>
+  </header>
+  <div class="">
+    <br>
+    <br>
+    <br>
+  </div>
+  <div class="fgprod container-fluid">
+
+    <div class="row align-items-center" style="border-color: black; border: 5px;">
+      <div class="col-1"></div>
+      <div class="col-sm-4">
+        <label for="" class="col-form-label">Nombre de producto</label>
+        <input type="text" id="txtnomprod" name="txtnomprod" class="form-control" required minlength="2" maxlength="30">
+      </div>
+      <div class="col-sm-4">
+        <label for="" class="col-form-label">Materia prima</label>
+        <select class="form-select" aria-label="Default select example">
+          <option selected>Open this select menu</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+      </div>
+      <div class="col-sm-2">
+        <label for="" class="col-form-label">Cantidad</label>
+        <input type="number" id="txtcantmatprim" name="txtcantmatprim" class="form-control" required>
+      </div>
+    </div>
+    <div class="row align-items-center">
+      <div class="col"></div>
+      <div class="col-sm-2">
+        <button type="button" class="btn btn-primary">Ingresar</button>
+      </div>
+      <div class="col"></div>
+    </div>
+    <div class="row table-responsive ">
+      <div class="col-2"></div>
+      <div class="col-8">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">Item</th>
+              <th scope="col">Materia Prima</th>
+              <th scope="col">Cantidad</th>
+              <th scope="col">Acción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>Larry the Bird</td>
+              <td>Thornton</td>
+              <td>@twitter</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col"></div>
+
+    </div>
+    <div class="row align-items-center">
+      <div class="col"></div>
+      <div class="col-sm-2">
+        <button type="submit" class="btn btn-primary">Gestionar</button>
+      </div>
+      <div class="col"></div>
+    </div>
+  </div>
+  <!-- <footer class="p-3 mb-2 bg-dark text-white">
+        <hr />
+        <img src="/static/images/aeropuertoIcon.png" width="30px" height="30px" id="imageFooter">
+        <p>
+
+            Sitio NO Oficial • Aplicación desarrollada por Grupo 17 Equipo 5
+            <br>
+            &copy; Todos los derechos reservados • 2021
+        </p>
+    </footer> -->
+
+</body>
+
 </html>
